@@ -1,5 +1,4 @@
 import { DogUpdateRequestsDto } from './dto/dogupdate.request.dto';
-import { join } from 'path';
 import { Files } from '../entities/Files';
 import { UserCheckRequestDto } from './../users/dtos/user.reqeust.dto';
 import { AWSService } from './../helper/fileupload.helper';
@@ -7,10 +6,10 @@ import { ConfigService } from '@nestjs/config';
 import { Dogs } from '../entities/Dogs';
 import { Users } from '../entities/Users';
 import {
-  Injectable,
-  UnauthorizedException,
   BadRequestException,
   ForbiddenException,
+  Injectable,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -19,8 +18,8 @@ import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class ProfileService {
-  private readonly awsS3: AWS.S3;
   public readonly S3_BUCKET_NAME: string;
+  private readonly awsS3: AWS.S3;
 
   constructor(
     @InjectRepository(Users, 'postgresql')
@@ -167,7 +166,7 @@ export class ProfileService {
         user: {
           nickname: userData.nickname,
           contentUrl: userData.File ? userData.File['contentUrl'] : '',
-          introduce: userData.introduce,
+          introduce: userData.introduce ? userData.introduce : '',
           dogsCount: allDogs.length,
         },
       },

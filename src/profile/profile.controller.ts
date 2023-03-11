@@ -2,28 +2,28 @@ import { DogUpdateRequestsDto } from './dto/dogupdate.request.dto';
 import { FilesInterceptor } from '@nestjs/platform-express/multer';
 import { JwtPayload } from './../auth/jwt/jwt.payload.dto';
 import { GetPayload } from './../common/dacorators/get.payload.decorator';
-import { JwtAuthGuard } from './../auth/jwt/jwt.guard';
+import { JwtAuthGuard } from '../auth/jwt/jwt.guard';
 import {
-  ApiTags,
-  ApiOperation,
-  ApiBearerAuth,
-  ApiConsumes,
-  ApiBody,
-  ApiOkResponse,
   ApiBadRequestResponse,
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
   ApiCreatedResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
 } from '@nestjs/swagger';
 import { ProfileService } from './profile.service';
 import {
+  Body,
   Controller,
-  UseGuards,
   Get,
   HttpCode,
   Param,
   Put,
-  UseInterceptors,
   UploadedFiles,
-  Body,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 
 @ApiTags('profile')
