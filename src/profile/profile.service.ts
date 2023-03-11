@@ -293,7 +293,7 @@ export class ProfileService {
     const category = 'dog';
     const newDogImage = files[0]
       ? await this.awsService.fileUploads(files, category)
-      : [{ id: dogData.id, contentUrl: dogData.File['contentUrl'] }];
+      : [{ id: dogData.FileId, contentUrl: dogData.File['contentUrl'] }];
 
     //강아지 정보 업데이트
     await this.dogsRepository
@@ -306,6 +306,7 @@ export class ProfileService {
         weight: data.weight,
         birthday: data.birthday,
         bringDate: data.bringDate,
+        representative: data.representative,
         FileId: newDogImage[0].id,
       })
       .where('id= :id', { id: id })

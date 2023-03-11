@@ -149,7 +149,7 @@ export class ProfileController {
         },
         representative: {
           description: '대표 강아지 여부',
-          example: 'true',
+          example: 'false',
           type: 'boolean',
         },
       },

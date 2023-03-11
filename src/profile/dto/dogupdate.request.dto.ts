@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsNumber,
-  IsDate,
-  IsBoolean,
-} from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 
@@ -59,7 +53,5 @@ export class DogUpdateRequestsDto {
     example: 'true',
     description: '대표 강아지 여부',
   })
-  @Type(() => Boolean)
-  @IsBoolean()
   public representative: boolean;
 }
